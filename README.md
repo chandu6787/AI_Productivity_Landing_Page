@@ -126,11 +126,36 @@ The app will be available at `http://localhost:5173`.
 ### Build for Production
 
 ```bash
-npm run build      # outputs to dist/
+npm run build      # outputs optimized static build to dist/
 npm run preview    # preview the production build locally
+npm run typecheck  # run TypeScript type checking
+npm run lint       # run ESLint code analysis
 ```
 
 ---
+
+## Deployment Instructions
+
+This app is built with **Vite** and **React**, generating static production assets in the `dist/` folder. You can deploy it easily to popular hosting platforms:
+
+### 1. Vercel (Recommended)
+1. Push your changes to GitHub.
+2. Import your repository into [Vercel](https://vercel.com).
+3. Vercel automatically detects Vite settings:
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+4. Click **Deploy**.
+
+### 2. Netlify
+1. Connect your GitHub repository to [Netlify](https://netlify.com).
+2. Set **Build command** to `npm run build` and **Publish directory** to `dist`.
+3. Alternatively, drag and drop the `dist/` folder into Netlify Drop.
+
+### 3. GitHub Pages
+1. Install `gh-pages`: `npm install --save-dev gh-pages`
+2. Add `"predeploy": "npm run build"` and `"deploy": "gh-pages -d dist"` to `package.json`.
+3. Set `base: '/<repo-name>/'` in `vite.config.ts`.
+4. Run `npm run deploy`.
 
 ## Screenshots
 

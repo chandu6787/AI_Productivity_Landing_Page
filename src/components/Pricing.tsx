@@ -22,27 +22,43 @@ export function Pricing() {
           </p>
 
           {/* Toggle */}
-          <div className="mt-8 inline-flex items-center gap-3">
-            <span className={`text-sm font-medium ${!annual ? 'text-slate-900 dark:text-white' : 'text-slate-400'}`}>
-              Monthly
-            </span>
+          <div className="mt-8 inline-flex items-center gap-4 select-none">
             <button
+              type="button"
+              onClick={() => setAnnual(false)}
+              className={`text-sm font-semibold transition-colors cursor-pointer ${
+                !annual ? 'text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
+              }`}
+            >
+              Monthly
+            </button>
+
+            <button
+              type="button"
               onClick={() => setAnnual((prev) => !prev)}
-              className="relative h-7 w-14 rounded-full bg-slate-200 transition-colors dark:bg-slate-700"
+              className="relative inline-flex h-8 w-16 shrink-0 cursor-pointer items-center rounded-full p-1 bg-slate-300 transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:bg-slate-700"
               role="switch"
               aria-checked={annual}
               aria-label="Toggle annual billing"
             >
               <span
-                className={`absolute top-1 h-5 w-5 rounded-full bg-brand-600 shadow transition-transform duration-300 ${
-                  annual ? 'translate-x-8' : 'translate-x-1'
+                className={`pointer-events-none inline-block h-6 w-6 rounded-full bg-brand-600 shadow-md ring-0 transition-transform duration-300 ease-in-out ${
+                  annual ? 'translate-x-8' : 'translate-x-0'
                 }`}
               />
             </button>
-            <span className={`text-sm font-medium ${annual ? 'text-slate-900 dark:text-white' : 'text-slate-400'}`}>
+
+            <button
+              type="button"
+              onClick={() => setAnnual(true)}
+              className={`text-sm font-semibold transition-colors cursor-pointer ${
+                annual ? 'text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
+              }`}
+            >
               Annual
-            </span>
-            <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700 dark:bg-green-900/40 dark:text-green-400">
+            </button>
+
+            <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700 dark:bg-green-900/40 dark:text-green-400 shadow-sm">
               Save 20%
             </span>
           </div>
