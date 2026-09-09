@@ -22,13 +22,13 @@ export function Pricing() {
           </p>
 
           {/* Toggle */}
-          <div className="mt-8 inline-flex items-center gap-3">
+          <div className="mt-8 inline-flex items-center gap-4">
             <span className={`text-sm font-medium ${!annual ? 'text-slate-900 dark:text-white' : 'text-slate-400'}`}>
               Monthly
             </span>
             <button
               onClick={() => setAnnual((prev) => !prev)}
-              className="relative h-7 w-14 rounded-full bg-slate-200 transition-colors dark:bg-slate-700"
+              className="relative mx-1 h-7 w-14 rounded-full bg-slate-200 transition-colors dark:bg-slate-700"
               role="switch"
               aria-checked={annual}
               aria-label="Toggle annual billing"
