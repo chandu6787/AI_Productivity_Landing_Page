@@ -175,22 +175,34 @@ This project was initially scaffolded using **Bolt AI** from a natural-language 
 
 ## Design Decisions & Challenges
 
-> _Fill in the sections below with your own reflections._
+### Project Description
+**NOVA** is a modern, responsive SaaS landing page built for a fictional AI-powered productivity platform. The application showcases product capabilities through interactive sections including a hero with dual CTAs, interactive statistics with animated count-up numbers, tabbed solution use-cases, an auto-rotating testimonial carousel, an interactive monthly/annual pricing toggle, and an expandable FAQ accordion. The site features full dark/light theme support, scroll-triggered animations, and a polished design system.
 
 ### Design Decisions
-<!-- Why did you choose this color palette, typography, and layout? -->
+- **Color Palette**: Built using a modern Indigo (`#4f46e5`) to Violet gradient primary palette, paired with balanced slate neutrals (`slate-900` / `slate-50`). This conveys technological sophistication, trust, and clarity.
+- **Typography**: Paired **Sora** (a geometric display font for headings) with **Inter** (a clean sans-serif for body copy) to create a clear visual hierarchy and high readability.
+- **Visual Micro-Interactions**: Used hover card lifts (`hover:-translate-y-1`), smooth color transitions, subtle drop shadows, and scroll-triggered fade-ins to create an energetic, interactive user experience.
 
 ### Technology Choices
-<!-- Why React + Vite + Tailwind? What influenced these choices? -->
+- **React 18**: Provides modular, declarative component architecture and clean state management via hooks.
+- **Vite 5**: Selected for sub-second hot module replacement (HMR), fast development server starts, and optimized production bundle building.
+- **TypeScript**: Ensures end-to-end type safety across data structures, component props, and custom hooks.
+- **Tailwind CSS 3**: Enables utility-first rapid styling, consistent design tokens, and seamless dark mode toggling.
+- **Lucide React**: Provides lightweight, accessible SVG icons.
 
 ### Component Structure Reasoning
-<!-- Why did you organize the components this way? How does data separation help? -->
+- **Atomic Components**: Decoupled each UI section into modular components under `src/components/` (`Navbar`, `Hero`, `Features`, `Pricing`, `Testimonials`, `FAQ`, etc.).
+- **Data & UI Decoupling**: Decoupled content from presentation by centralizing marketing copy, plan pricing, and feature sets in `src/data/content.tsx`.
+- **Custom Hooks & Context**: Abstracted logic into reusable hooks (`useInView`, `useCountUp`) and managed theme state centrally via `ThemeContext`.
 
-### Challenges Faced
-<!-- What was difficult? How did you solve responsive, animation, or state issues? -->
+### Challenges Faced & Solutions
+- **Pricing Switch Alignment Bug**: Resolved a UI bug where the toggle knob shifted outside its track pill and obscured the "Annual" text. Solved by standardizing track dimensions (`w-16 h-8`), knob padding (`p-1`), knob translation distance (`translate-x-8`), and enforcing flex gap spacing (`gap-4 shrink-0`).
+- **Performance & Bundle Size**: Avoided heavy animation libraries (like Framer Motion) to maintain small bundle sizes (~41kB CSS / 200kB JS). Implemented lightweight Intersection Observer scroll triggers combined with CSS keyframe transitions instead.
+- **Theme Persistence**: Prevented dark mode flash on initial page load by syncing theme state with `localStorage` and system color scheme preferences.
 
 ### How AI Was Used
-<!-- How did Bolt AI help? What did you change after the initial generation? -->
+- **Initial Scaffolding**: Utilized **Bolt AI** to generate the initial component wireframes, Tailwind utility classes, and layout scaffolding from prompt specifications.
+- **Refinement & Debugging**: Partnered with AI agent tools to debug complex CSS layout constraints, optimize TypeScript interfaces, streamline bundle performance, and write comprehensive project documentation.
 
 ---
 
